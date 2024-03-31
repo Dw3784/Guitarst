@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <title> {{ title }} </title>
+</head>
+<body>
+    <div class="bass-gt"> Бас гитары </div>
+    <div class="bass-gt__wrapper">
+        {% for product in products %}
+        {% if product.category == "bass-gt" %}
+            <div class="bass-gt__card">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" class="bass-gt__image">
+                    <div class="bass-gt__title"> {{ product.name }} </div>
+                {% else %}
+                    <img src="{% static "images/not.found.jpg" %}" class="bass-gt__image">
+                {% endif %}
+            </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</body>
+</html>

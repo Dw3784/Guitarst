@@ -1,0 +1,20 @@
+.auth {
+    font-family: 'JetBrains Mono', sans-serif;
+    font-size: 30px;
+}
+
+.auth__per-form {
+    text-align: center;
+    margin: 250px 0;
+}
+
+.auth-f {
+    padding: 20px 200px;
+    font-family: 'JetBrains Mono', sans-serif;
+}
+
+.auth__auth-input {
+    font-family: 'JetBrains Mono', sans-serif;
+    float: left;
+    margin: 20px 467px;
+}

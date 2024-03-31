@@ -1,0 +1,35 @@
+/* Основа */
+.access, .access__li, .capo, .mediat, .others, .strings {
+    font-family: 'JetBrains Mono', sans-serif;
+    font-size: 20px;
+}
+
+.access__link {
+    text-decoration: none;
+    line-height: 60px;
+    color: black;
+}
+
+
+/* Ссылки */
+
+.capo__card, .mediat__card, .strings__card, .others__card {
+    background-color: rgba(77, 61, 61, 0.557);
+    margin-left: 600px;
+    width: 300px;
+    margin-bottom: 60px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.capo__image, .mediat__image, .strings__image, .others__image {
+    border-radius: 11px;
+    width: 300px;
+    height: 300px;
+}
+
+.capo__title, .mediat__title, .strings__title, .others__title {
+    font-family: 'JetBrains Mono', sans-serif;
+    margin-top: 20px;
+    font-size: 14px;
+}

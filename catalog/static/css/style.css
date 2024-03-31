@@ -1,0 +1,62 @@
+/* Каталог */
+
+.catalog__header, .catalog__li, .catalog, .ac-gt, .el-gt, .bass-gt {
+    font-family: 'JetBrains Mono', sans-serif;
+    font-size: 20px;
+}
+
+.catalog__nav .catalog__ul {
+    float: right;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.catalog__li {
+    display: inline-block;
+    margin: 0 35px;
+}
+
+.catalog__header {
+    float: left;
+}
+
+.catalog__link {
+    text-decoration: none;
+    line-height: 60px;
+    color: black;
+}
+
+.catalog__header {
+    font-size: 40px;
+}
+
+figure {
+    width: 1450px;
+    height: 1080px;
+    overflow: hidden;
+}
+
+
+/* Карты товаров */
+
+.ac-gt__card, .el-gt__card, .bass-gt__card {
+    background-color: rgba(77, 61, 61, 0.557);
+    margin-left: 600px;
+    width: 300px;
+    margin-bottom: 60px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.ac-gt__image, .el-gt__image, .bass-gt__image {
+    border-radius: 11px;
+    width: 300px;
+    height: 300px;
+}
+
+.ac-gt__title, .el-gt__title, .bass-gt__title {
+    font-family: 'JetBrains Mono', sans-serif;
+    margin-top: 20px;
+    font-size: 14px;
+}

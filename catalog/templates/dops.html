@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/dops.css "%}">
+    <title> {{ title }} </title>
+</head>
+<body>
+    <nav class="access-nav">
+        <div class="access"> Аксессуары и комплектующие </div>
+        <ul class="access__ul">
+            <li class="access__li"><a class="access__link" href="{% url 'catalog:Strings' %}"> Струны </a></li>
+            <li class="access__li"><a class="access__link" href="{% url 'catalog:Mediators' %}"> Медиаторы </a></li>
+            <li class="access__li"><a class="access__link" href="{% url 'catalog:Capo' %}"> Кападастры </a></li>
+            <li class="access__li"><a class="access__link" href="{% url 'catalog:Others' %}"> Другое </a></li>
+        </ul>
+    </nav>
+</body>
+</html>

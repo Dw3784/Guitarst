@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <title> {{ title }} </title>
+</head>
+<body>
+    <div class="catalog">
+        <div class="catalog__header"> Каталог </div>
+        <nav class="catalog__nav">
+            <ul class="catalog__ul">
+                <li class="catalog__li"><a class="catalog__link" href="{% url 'catalog:Ac_gt' %}"> Акустические Гитары </a></li>
+                <li class="catalog__li"><a class="catalog__link" href="{% url 'catalog:Electro_gt' %}"> Электро гитары </a></li>
+                <li class="catalog__li"><a class="catalog__link" href="{% url 'catalog:Bass_gt' %}"> Бас гитары </a></li>
+                <li class="catalog__li"><a class="catalog__link" href="{% url 'catalog:Dops' %}"> Аксесуары и комплектующие </a></li>
+                <li class="catalog__li"><a class="catalog__link" href="{% url 'catalog:user_auth' %}"> Аккаунт </a></li>
+            </ul>
+        </nav>
+    </div>
+    <br> <br>
+    <figure class="catalog-figure"> 
+        <img class="catalog-img" src="{% static "images/main.jpg" %}">
+    </figure>
+</body>
+</html>

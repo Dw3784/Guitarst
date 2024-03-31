@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/auth-style.css" %}">
+    <title> Auth </title>
+</head>
+<body>
+    <div class="auth">
+        <div class="auth__header"> Аккаунт </div>
+        <form class="auth__per-form" method="POST">
+            {% csrf_token %}
+            {{ form.name }}<br>
+            {{ form.age }}<br>
+        <span> {{ error }} </span>
+        <input class="auth__auth-input" type="submit" value="Send">
+        </form>
+    </div>
+</body>
+</html>
