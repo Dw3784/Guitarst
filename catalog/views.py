@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .forms import person_form
-from .models import pproducts
+from .models import pproducts, categories
 
 #Каталог
 def main(request):
@@ -67,11 +67,11 @@ def auth(request):
 
 #Аксессуары
 def dops(request):
-    products = pproducts.objects.all()
+    categorys = categories.objects.all()
 
     context = {
         'title': 'Accessories',
-        'products': products
+        'categories': categorys
     }
 
     return render(request, 'dops.html', context)

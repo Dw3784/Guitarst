@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import person, pproducts
+from .models import person, pproducts, categories
 
 #admin.site.register(person)
 #admin.site.register(pproducts)
@@ -10,4 +10,8 @@ class personAdmin(admin.ModelAdmin):
 
 @admin.register(pproducts)
 class pproductsAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('name',)}
+
+@admin.register(categories)
+class categoriesAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}

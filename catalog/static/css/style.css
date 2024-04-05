@@ -42,9 +42,7 @@ figure {
 
 .ac-gt__card, .el-gt__card, .bass-gt__card {
     background-color: rgba(77, 61, 61, 0.557);
-    margin-left: 600px;
     width: 300px;
-    margin-bottom: 60px;
     padding: 20px;
     border-radius: 20px;
 }
@@ -59,4 +57,13 @@ figure {
     font-family: 'JetBrains Mono', sans-serif;
     margin-top: 20px;
     font-size: 14px;
+}
+
+.ac-gt__wrapper, .el-gt__wrapper, .bass-gt__wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    justify-items: center;
+    margin: 0 0;
+    margin-top: 30px;
 }

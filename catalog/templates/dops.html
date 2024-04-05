@@ -9,14 +9,21 @@
     <title> {{ title }} </title>
 </head>
 <body>
-    <nav class="access-nav">
-        <div class="access"> Аксессуары и комплектующие </div>
-        <ul class="access__ul">
-            <li class="access__li"><a class="access__link" href="{% url 'catalog:Strings' %}"> Струны </a></li>
-            <li class="access__li"><a class="access__link" href="{% url 'catalog:Mediators' %}"> Медиаторы </a></li>
-            <li class="access__li"><a class="access__link" href="{% url 'catalog:Capo' %}"> Кападастры </a></li>
-            <li class="access__li"><a class="access__link" href="{% url 'catalog:Others' %}"> Другое </a></li>
-        </ul>
-    </nav>
+    <div class="dops">
+        <div class="dops-wrapper">
+            {% for category in categories %}
+            {% if category.category == "dops" %}
+                <div class="dops-wrapper__card">
+                    {% if category.image %}
+                        <img src="{{ category.image.url }}" class="dops-wrapper__image">
+                        <a class="dops-wrapper__title" href="{% url 'catalog:Strings' %}"> {{ category.name }} </a>
+                    {% else %}
+                        <img src="{% static "images/not.found.jpg" %}" class="dops-wrapper__image">
+                    {% endif %}
+                </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
 </body>
 </html>

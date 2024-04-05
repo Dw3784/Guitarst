@@ -1,5 +1,5 @@
 /* Основа */
-.access, .access__li, .capo, .mediat, .others, .strings {
+.access, .access__li, .capo, .mediat, .others, .strings, .dops {
     font-family: 'JetBrains Mono', sans-serif;
     font-size: 20px;
 }
@@ -13,23 +13,30 @@
 
 /* Ссылки */
 
-.capo__card, .mediat__card, .strings__card, .others__card {
+.capo__card, .mediat__card, .strings__card, .others__card, .dops-wrapper__card {
     background-color: rgba(77, 61, 61, 0.557);
-    margin-left: 600px;
     width: 300px;
-    margin-bottom: 60px;
     padding: 20px;
     border-radius: 20px;
 }
 
-.capo__image, .mediat__image, .strings__image, .others__image {
+.capo__image, .mediat__image, .strings__image, .others__image, .dops-wrapper__image {
     border-radius: 11px;
     width: 300px;
     height: 300px;
 }
 
-.capo__title, .mediat__title, .strings__title, .others__title {
+.capo__title, .mediat__title, .strings__title, .others__title, .dops-wrapper__title {
     font-family: 'JetBrains Mono', sans-serif;
     margin-top: 20px;
     font-size: 14px;
+}
+
+.dops-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    justify-items: center;
+    margin: 0 0;
+    margin-top: 30px;
 }
