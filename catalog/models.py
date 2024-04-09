@@ -11,6 +11,8 @@ class person(models.Model):
         verbose_name = 'user'
         verbose_name_plural = 'users'
 
+    def __str__(self):
+        return self.name
 
 
 
@@ -30,6 +32,9 @@ class pproducts(models.Model):
         verbose_name = 'product'
         verbose_name_plural = 'products'
 
+    def __str__(self):
+        return self.name
+
 #Категории товаров
 class categories(models.Model):
     name = models.CharField(max_length=50)
@@ -41,3 +46,7 @@ class categories(models.Model):
         db_table = 'categories'
         verbose_name = 'category'
         verbose_name_plural = 'categories'
+
+
+    def __str__(self):
+        return self.name

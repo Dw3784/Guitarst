@@ -10,6 +10,9 @@ def main(request):
 
     return render(request, 'main.html', context)
 
+#Гитары
+
+
 
 #Акустические гитары
 def ac_gt(request):
