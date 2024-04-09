@@ -9,17 +9,17 @@
     <title> {{ title }} </title>
 </head>
 <body>
-    <div class="dops">
-        <div class="dops-wrapper">
+    <div class="guitars">
+        <div class="wrapper">
             {% for category in categories %}
             {% if category.category == "dops" %}
-                <div class="dops-wrapper__card">
-                    <a class="dops-wrapper__title" href="{% url 'catalog:Strings' %}">
+                <div class="card">
+                    <a class="card__title" href="{% url 'category.url_name' %}">
                         {% if category.image %}
-                            <img src="{{ category.image.url }}" class="dops-wrapper__image">
+                            <img src="{{ category.image.url }}" class="card__image">
                             <p> {{ category.name }} </p>
                         {% else %}
-                            <img src="{% static "images/not.found.jpg" %}" class="dops-wrapper__image">
+                            <img src="{% static "images/not.found.jpg" %}" class="card__image">
                         {% endif %}
                     </a>
                 </div>

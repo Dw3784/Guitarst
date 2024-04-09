@@ -14,7 +14,7 @@
             {% for category in categories %}
             {% if category.category == "dops" %}
                 <div class="card">
-                    <a class="card__link" href="{% url 'catalog:Strings' %}">
+                    <a class="card__link" href="{% url category.url_name %}">
                         {% if category.image %}
                             <img src="{{ category.image.url }}" class="card__image">
                             <p> {{ category.name }} </p>

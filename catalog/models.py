@@ -41,6 +41,7 @@ class categories(models.Model):
     image = models.ImageField(upload_to = 'images', blank = True, null = True)
     slug = models.SlugField(max_length = 200, unique = True, blank = True, null = True, verbose_name = 'URL')
     category = models.TextField(max_length = 50, blank = True, null = True)
+    url_name = models.TextField(max_length = 25, blank = True, null = True)
 
     class Meta():
         db_table = 'categories'
