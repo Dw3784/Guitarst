@@ -10,15 +10,15 @@
 </head>
 <body>
     <div class="bass-gt"> Бас гитары </div>
-    <div class="bass-gt__wrapper">
+    <div class="wrapper">
         {% for product in products %}
         {% if product.category == "bass-gt" %}
-            <div class="bass-gt__card">
+            <div class="card">
                 {% if product.image %}
-                    <img src="{{ product.image.url }}" class="bass-gt__image">
-                    <div class="bass-gt__title"> {{ product.name }} </div>
+                    <img src="{{ product.image.url }}" class="card__image">
+                    <div class="card__title"> {{ product.name }} </div>
                 {% else %}
-                    <img src="{% static "images/not.found.jpg" %}" class="bass-gt__image">
+                    <img src="{% static "images/not.found.jpg" %}" class="card__image">
                 {% endif %}
             </div>
         {% endif %}

@@ -37,30 +37,31 @@
 
 /* Карты товаров */
 
-.ac-gt__card, .el-gt__card, .bass-gt__card {
+.card {
     background-color: rgba(77, 61, 61, 0.557);
     width: 300px;
     padding: 20px;
     border-radius: 20px;
 }
 
-.ac-gt__image, .el-gt__image, .bass-gt__image {
+.card__image {
     border-radius: 11px;
     width: 300px;
     height: 300px;
 }
 
-.ac-gt__title, .el-gt__title, .bass-gt__title {
+.card__title {
     font-family: 'JetBrains Mono', sans-serif;
     margin-top: 20px;
     font-size: 14px;
 }
 
-.ac-gt__wrapper, .el-gt__wrapper, .bass-gt__wrapper {
+.wrapper {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-content: center;
     justify-items: center;
+    grid-row-gap: 20px;
     margin: 0 0;
     margin-top: 30px;
 }
