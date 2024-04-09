@@ -10,11 +10,12 @@
 </head>
 <body>
     <div class="guitars">
+        <h1> {{ title1 }} </h1>
         <div class="wrapper">
             {% for category in categories %}
-            {% if category.category == "dops" %}
+            {% if category.category == "guitars" %}
                 <div class="card">
-                    <a class="card__title" href="{% url 'category.url_name' %}">
+                    <a class="card__link" href="{% url category.url_name %}">
                         {% if category.image %}
                             <img src="{{ category.image.url }}" class="card__image">
                             <p> {{ category.name }} </p>

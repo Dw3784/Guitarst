@@ -1,8 +1,14 @@
 /* Каталог */
 
-.header, .ul__li, .catalog, .ac-gt, .el-gt, .bass-gt {
+.header, .ul__li, .catalog, .ac-gt, .el-gt, .bass-gt, .guitars {
     font-family: 'JetBrains Mono', sans-serif;
     font-size: 20px;
+}
+
+.card__link {
+    text-decoration: none;
+    line-height: 17px;
+    color: black;
 }
 
 .nav, .ul {
@@ -50,7 +56,7 @@
     height: 300px;
 }
 
-.card__title {
+.card__title, .card__link {
     font-family: 'JetBrains Mono', sans-serif;
     margin-top: 20px;
     font-size: 14px;

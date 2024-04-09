@@ -10,12 +10,15 @@ def main(request):
 
     return render(request, 'main.html', context)
 
+
+
 #Гитары
 def guitars(request):
     categorys = categories.objects.all()
 
     context = {
         'title': 'Guitars',
+        'title1': 'Гитары',
         'categories': categorys,
     }
 
@@ -82,6 +85,7 @@ def dops(request):
 
     context = {
         'title': 'Accessories',
+        'title1': 'Аксессуары',
         'categories': categorys
     }
 
