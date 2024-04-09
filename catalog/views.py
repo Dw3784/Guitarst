@@ -11,7 +11,15 @@ def main(request):
     return render(request, 'main.html', context)
 
 #Гитары
+def guitars(request):
+    categorys = categories.objects.all()
 
+    context = {
+        'title': 'Guitars',
+        'categories': categorys,
+    }
+
+    return render(request, 'Guitars.html', context)
 
 
 #Акустические гитары

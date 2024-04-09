@@ -10,15 +10,15 @@
 </head>
 <body>
     <div class="strings"> Струны </div>
-    <div class="strings__wrapper">
+    <div class="wrapper">
         {% for product in products %}
         {% if product.category == "strings" %}
-            <div class="strings__card">
+            <div class="card">
                 {% if product.image %}
-                    <img src="{{ product.image.url }}" class="strings__image">
-                    <div class="strings__title"> {{ product.name }} </div>
+                    <img src="{{ product.image.url }}" class="card__image">
+                    <div class="card__title"> {{ product.name }} </div>
                 {% else %}
-                    <img src="{% static "images/not.found.jpg" %}" class="strings__image">
+                    <img src="{% static "images/not.found.jpg" %}" class="card__image">
                 {% endif %}
             </div>
         {% endif %}

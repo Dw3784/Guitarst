@@ -10,16 +10,18 @@
 </head>
 <body>
     <div class="dops">
-        <div class="dops-wrapper">
+        <div class="wrapper">
             {% for category in categories %}
             {% if category.category == "dops" %}
-                <div class="dops-wrapper__card">
-                    {% if category.image %}
-                        <img src="{{ category.image.url }}" class="dops-wrapper__image">
-                        <a class="dops-wrapper__title" href="{% url 'catalog:Strings' %}"> {{ category.name }} </a>
-                    {% else %}
-                        <img src="{% static "images/not.found.jpg" %}" class="dops-wrapper__image">
-                    {% endif %}
+                <div class="card">
+                    <a class="card__link" href="{% url 'catalog:Strings' %}">
+                        {% if category.image %}
+                            <img src="{{ category.image.url }}" class="card__image">
+                            <p> {{ category.name }} </p>
+                        {% else %}
+                            <img src="{% static "images/not.found.jpg" %}" class="card__image">
+                        {% endif %}
+                    </a>
                 </div>
             {% endif %}
             {% endfor %}

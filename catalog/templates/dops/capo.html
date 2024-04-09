@@ -10,15 +10,15 @@
 </head>
 <body>
     <div class="capo"> Каподастры </div>
-    <div class="capo__wrapper">
+    <div class="wrapper">
         {% for product in products %}
         {% if product.category == "capo" %}
-            <div class="capo__card">
+            <div class="card">
                 {% if product.image %}
-                    <img src="{{ product.image.url }}" class="capo__image">
-                    <div class="capo__title"> {{ product.name }} </div>
+                    <img src="{{ product.image.url }}" class="card__image">
+                    <div class="card__title"> {{ product.name }} </div>
                 {% else %}
-                    <img src="{% static "images/not.found.jpg" %}" class="capo__image">
+                    <img src="{% static "images/not.found.jpg" %}" class="card__image">
                 {% endif %}
             </div>
         {% endif %}

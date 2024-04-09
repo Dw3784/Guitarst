@@ -10,20 +10,20 @@
 </head>
 <body>
     <div class="catalog">
-        <div class="catalog__header"> Каталог </div>
-        <nav class="catalog__nav">
-            <ul class="catalog__ul">
-                <li class="catalog__li"><a class="catalog__link" href="{% url 'catalog:Ac_gt' %}"> Акустические Гитары </a></li>
-                <li class="catalog__li"><a class="catalog__link" href="{% url 'catalog:Electro_gt' %}"> Электро гитары </a></li>
-                <li class="catalog__li"><a class="catalog__link" href="{% url 'catalog:Bass_gt' %}"> Бас гитары </a></li>
-                <li class="catalog__li"><a class="catalog__link" href="{% url 'catalog:Dops' %}"> Аксесуары и комплектующие </a></li>
-                <li class="catalog__li"><a class="catalog__link" href="{% url 'catalog:user_auth' %}"> Аккаунт </a></li>
+        <div class="header"> Каталог </div>
+        <nav class="nav">
+            <ul class="ul">
+                <li class="ul__li"><a class="ul__link" href="{% url 'catalog:Ac_gt' %}"> Акустические Гитары </a></li>
+                <li class="ul__li"><a class="ul__link" href="{% url 'catalog:Electro_gt' %}"> Электро гитары </a></li>
+                <li class="ul__li"><a class="ul__link" href="{% url 'catalog:Bass_gt' %}"> Бас гитары </a></li>
+                <li class="ul__li"><a class="ul__link" href="{% url 'catalog:Dops' %}"> Аксесуары и комплектующие </a></li>
+                <li class="ul__li"><a class="ul__link" href="{% url 'catalog:user_auth' %}"> Аккаунт </a></li>
             </ul>
         </nav>
     </div>
     <br> <br>
-    <figure class="catalog-figure"> 
-        <img class="catalog-img" src="{% static "images/main.jpg" %}">
+    <figure class="figure"> 
+        <img class="img" src="{% static "images/main.jpg" %}">
     </figure>
 </body>
 </html>

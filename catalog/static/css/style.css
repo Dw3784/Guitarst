@@ -1,37 +1,34 @@
 /* Каталог */
 
-.catalog__header, .catalog__li, .catalog, .ac-gt, .el-gt, .bass-gt {
+.header, .ul__li, .catalog, .ac-gt, .el-gt, .bass-gt {
     font-family: 'JetBrains Mono', sans-serif;
     font-size: 20px;
 }
 
-.catalog__nav .catalog__ul {
+.nav, .ul {
     float: right;
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-.catalog__li {
+.ul__li {
     display: inline-block;
     margin: 0 35px;
 }
 
-.catalog__header {
+.header {
     float: left;
+    font-size: 40px;
 }
 
-.catalog__link {
+.ul__link {
     text-decoration: none;
     line-height: 60px;
     color: black;
 }
 
-.catalog__header {
-    font-size: 40px;
-}
-
-figure {
+.figure {
     width: 1450px;
     height: 1080px;
     overflow: hidden;
