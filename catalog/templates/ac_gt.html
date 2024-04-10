@@ -1,13 +1,11 @@
+{% extends "base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block link %}
     <link rel="stylesheet" href="{% static "css/style.css" %}">
-    <title> {{ title }} </title>
-</head>
+{% endblock %}
+
+{% block body %}
 <body>
     <div class="ac-gt"> Акустические гитары </div>
     <div class="wrapper">
@@ -25,4 +23,4 @@
         {% endfor %}
     </div>
 </body>
-</html>
+{% endblock %}

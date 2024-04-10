@@ -1,27 +1,25 @@
+{% extends "base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
-    <title> {{ title }} </title>
-</head>
-<body>
-    <div class="catalog">
-        <div class="header"> Каталог </div>
-        <nav class="nav">
-            <ul class="ul">
-                <li class="ul__li"><a class="ul__link" href="{% url 'catalog:Guitars' %}"> Гитары </a></li>
-                <li class="ul__li"><a class="ul__link" href="{% url 'catalog:Dops' %}"> Аксесуары и комплектующие </a></li>
-                <li class="ul__li"><a class="ul__link" href="{% url 'catalog:user_auth' %}"> Аккаунт </a></li>
-            </ul>
-        </nav>
-    </div>
-    <br> <br>
-    <figure class="figure"> 
-        <img class="img" src="{% static "images/main.jpg" %}">
-    </figure>
-</body>
-</html>
+{% block link %}
+    <link rel="stylesheet" href="{% static "css/style.css "%}">
+{% endblock %}
+
+{% block body %}
+    <body>
+        <div class="catalog">
+            <div class="header"> Каталог </div>
+            <nav class="nav">
+                <ul class="ul">
+                    <li class="ul__li"><a class="ul__link" href="{% url 'catalog:Guitars' %}"> Гитары </a></li>
+                    <li class="ul__li"><a class="ul__link" href="{% url 'catalog:Dops' %}"> Аксесуары и комплектующие </a></li>
+                    <li class="ul__li"><a class="ul__link" href="{% url 'catalog:user_auth' %}"> Аккаунт </a></li>
+                </ul>
+            </nav>
+        </div>
+        <br> <br>
+        <figure class="figure"> 
+            <img class="img" src="{% static "images/main.jpg" %}">
+        </figure>
+    </body>
+{% endblock %}

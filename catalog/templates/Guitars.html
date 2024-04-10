@@ -1,32 +1,30 @@
+{% extends "base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block link %}
     <link rel="stylesheet" href="{% static "css/style.css "%}">
-    <title> {{ title }} </title>
-</head>
-<body>
-    <div class="guitars">
-        <h1> {{ title1 }} </h1>
-        <div class="wrapper">
-            {% for category in categories %}
-            {% if category.category == "guitars" %}
-                <div class="card">
-                    <a class="card__link" href="{% url category.url_name %}">
-                        {% if category.image %}
-                            <img src="{{ category.image.url }}" class="card__image">
-                            <p> {{ category.name }} </p>
-                        {% else %}
-                            <img src="{% static "images/not.found.jpg" %}" class="card__image">
-                        {% endif %}
-                    </a>
-                </div>
-            {% endif %}
-            {% endfor %}
+{% endblock %}
+
+{% block body %}
+    <body>
+        <div class="guitars">
+            <h1> {{ title1 }} </h1>
+            <div class="wrapper">
+                {% for category in categories %}
+                {% if category.category == "guitars" %}
+                    <div class="card">
+                        <a class="card__link" href="{% url category.url_name %}">
+                            {% if category.image %}
+                                <img src="{{ category.image.url }}" class="card__image">
+                                <p> {{ category.name }} </p>
+                            {% else %}
+                                <img src="{% static "images/not.found.jpg" %}" class="card__image">
+                            {% endif %}
+                        </a>
+                    </div>
+                {% endif %}
+                {% endfor %}
+            </div>
         </div>
-    </div>
-</body>
-</html>
+    </body>
+{% endblock %}
