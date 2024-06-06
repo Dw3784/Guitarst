@@ -1,12 +1,14 @@
 from typing import Any
 from django.shortcuts import render
 from .models import pproducts, categories
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView
+from django.contrib.auth.models import User
 
 #Каталог
 def main(request):
     context = {
-        'title': 'Main'
+        'title': 'Main',
+        'request': request,
     }
 
     return render(request, 'main.html', context)

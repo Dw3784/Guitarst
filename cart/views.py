@@ -12,7 +12,7 @@ def main_cart(request):
         return render(request, 'empty_cart.html')
     
     else:
-        return redirect('user:login')
+        return redirect('user:reg_or_auth')
     
 
 # Для пустой корзины

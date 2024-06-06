@@ -1,8 +1,20 @@
+from typing import Any
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import *
 from django.views.generic import FormView
 from .forms import *
+
+# Регистрация или вход
+def reg_or_auth_view(request):
+    context = {
+        'title': 'Reg_or_auth',
+        'button1': 'Авторизация',
+        'button2': 'Регистрация',
+    }
+
+    return render(request, 'reg_or_auth.html', context)
+
 
 # Логин
 def login_view(request):
