@@ -1,6 +1,7 @@
-from django.shortcuts import render,redirect
-from .forms import person_form
+from typing import Any
+from django.shortcuts import render
 from .models import pproducts, categories
+from django.views.generic import ListView, DetailView
 
 #Каталог
 def main(request):
@@ -11,18 +12,17 @@ def main(request):
     return render(request, 'main.html', context)
 
 
-
 #Гитары
-def guitars(request):
-    categorys = categories.objects.all()
+class guitars_ListView(ListView):
+    model = categories
+    context_object_name =  'categories'
+    template_name = 'Guitars.html'
 
-    context = {
-        'title': 'Guitars',
-        'title1': 'Гитары',
-        'categories': categorys,
-    }
-
-    return render(request, 'Guitars.html', context)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Guitars'
+        context['title1'] = 'Гитары'
+        return context
 
 
 #Акустические гитары
@@ -38,15 +38,25 @@ def ac_gt(request):
 
 
 #Бас гитары
-def bass_gt(request):
-    products = pproducts.objects.all()
+class bass_gt_ListView(ListView):
+    model = pproducts
+    template_name = 'bass_gt.html'
+    context_object_name = 'products'
 
-    context = {
-    'title': 'Bass Guitars',
-    'products': products 
-    }
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Bass Guitars'
+        return context
 
-    return render(request, 'bass_gt.html', context)
+# def bass_gt(request):
+#     products = pproducts.objects.all()
+
+#     context = {
+#     'title': 'Bass Guitars',
+#     'products': products 
+#     }
+
+#     return render(request, 'bass_gt.html', context)
 
 
 #Электро гитары
@@ -59,24 +69,6 @@ def electro_gt(request):
     }
 
     return render(request, 'electro_gt.html', context)
-
-
-#Аудентиф
-def auth(request):
-    if request.method == 'POST':
-        form = person_form(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('Main')
-        else:
-            error = 'Error'
-
-    form = person_form()
-    context = {
-        'form': form
-    }
-    return render(request, 'auth.html', context)
-
 
 
 #Аксессуары
@@ -126,12 +118,23 @@ def capo(request):
     return render(request, 'dops/capo.html', context)
 
 
-def others(request):
-    products = pproducts.objects.all()
+class others_ListView(ListView):
+    model = pproducts
+    context_object_name = 'products'
+    template_name = 'dops/others.html'
 
-    context = {
-        'title': 'Others',
-        'products': products
-    }
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = 'Others'
+        return context
+    
 
-    return render(request, 'dops/others.html', context)
+# def others(request):
+#     products = pproducts.objects.all()
+
+#     context = {
+#         'title': 'Others',
+#         'products': products
+#     }
+
+#     return render(request, 'dops/others.html', context)

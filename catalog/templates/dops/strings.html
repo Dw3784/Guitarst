@@ -15,6 +15,7 @@
                     {% if product.image %}
                         <img src="{{ product.image.url }}" class="card__image">
                         <div class="card__title"> {{ product.name }} </div>
+                        <a href="{% url 'cart:create_cart' product.slug %}">Добавить в корзину</a>
                     {% else %}
                         <img src="{% static "images/not.found.jpg" %}" class="card__image">
                     {% endif %}
