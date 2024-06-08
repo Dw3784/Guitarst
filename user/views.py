@@ -2,7 +2,7 @@ from typing import Any
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import *
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 from django.urls import reverse_lazy
 from .forms import *
 
@@ -50,3 +50,11 @@ class register_view(CreateView):
     template_name = 'register.html'
     form_class = register_form
     success_url = reverse_lazy('catalog:Main')
+
+
+# Профиль пользователя
+class profile_view(DetailView):
+    template_name = 'profile.html'
+    form_class = profile_form
+    context_object_name = 'form'
+    model = User

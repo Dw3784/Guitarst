@@ -33,3 +33,9 @@ class register_form(UserCreationForm):
                    'password1': forms.PasswordInput(attrs={'class': 'password1'}),
                    'password2': forms.PasswordInput(attrs={'class': 'password2'}),
             }
+
+
+class profile_form(forms.ModelForm):
+       class Meta:
+        model = User
+        fields = ['username']

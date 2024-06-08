@@ -14,7 +14,7 @@
                     <li class="ul__li"><a class="ul__link" href="{% url 'catalog:Guitars' %}">Гитары</a></li>
                     <li class="ul__li"><a class="ul__link" href="{% url 'catalog:Dops' %}">Аксесуары и комплектующие</a></li>
                     {% if request.user.is_authenticated %}
-                        <li class="ul__li"><a class="ul__link" href="{% url 'user:login' %}">Аккаунт</a></li>
+                        <li class="ul__li"><a class="ul__link" href="{% url 'user:profile' user.pk %}">Аккаунт</a></li>
                     {% else %}
                         <li class="ul__li"><a class="ul__link" href="{% url 'user:reg_or_auth' %}">Регистрация и вход</a></li>
                     {% endif %}
