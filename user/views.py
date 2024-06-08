@@ -2,7 +2,8 @@ from typing import Any
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import *
-from django.views.generic import FormView
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
 from .forms import *
 
 # Регистрация или вход
@@ -45,7 +46,7 @@ def logout_view(request):
 
 
 # Регистрация
-class register_view(FormView):
+class register_view(CreateView):
     template_name = 'register.html'
     form_class = register_form
-    success_url = 'catalog:Main'
+    success_url = reverse_lazy('catalog:Main')

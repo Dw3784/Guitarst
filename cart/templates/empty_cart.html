@@ -6,7 +6,7 @@
     <title>DLF</title>
 </head>
 <body>
-    <form action="{% url 'empty_cart' %}">
+    <form action="{% url 'cart:empty_cart' %}">
         {% csrf_token %}
         <a> В корзине нет товаров </a>
         <input type="submit" value="Начать покупки">

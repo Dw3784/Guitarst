@@ -8,7 +8,8 @@ def main_cart(request):
     if cart_Model.objects.count() != 0:
         return render(request, 'cart.html')
     
-    elif cart_Model.objects.values('user').count() != 0:
+    elif User.is_authenticated:
+    # elif cart_Model.objects.values('user').count() != 0:
         return render(request, 'empty_cart.html')
     
     else:
