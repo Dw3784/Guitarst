@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class cart_Model(models.Model):
     # user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name = 'Пользователь', db_constraint = False)
     user = models.CharField(max_length=120, null=True, verbose_name='Пользователь')
-    product = models.ForeignKey(pproducts, on_delete=models.CASCADE, verbose_name = 'Товар')
+    product = models.CharField(max_length=120, verbose_name = 'Товар')
     price = models.IntegerField(null=True)
     quantity = models.PositiveSmallIntegerField(default=0, verbose_name = 'Количество')
     add_date = models.DateTimeField(auto_now_add = True, verbose_name = 'Дата добавления', null = True)
