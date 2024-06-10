@@ -17,4 +17,4 @@ class cart_Model(models.Model):
         verbose_name_plural = 'Корзины'
 
     def __str__(self):
-        return f'Корзина пользователя: {self.user}| Товар: {self.quantity} в количестве: {self.quantity}'
+        return f'Корзина пользователя: {self.user} | Товар: {self.product} в количестве: {self.quantity}'

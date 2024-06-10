@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <a>Общая стоимость: {{ full_price }}</a>
+    {% for i in count %}
+        <a>Товар: {{ user_dict['products'][i] }} в количестве: {{ user_dict['quantityes'][i] }} | {{ user_dict['prices'][i] }}</a>
+    {% endfor %}
+</body>
+</html>
