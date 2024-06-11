@@ -18,3 +18,6 @@ class cart_Model(models.Model):
 
     def __str__(self):
         return f'Корзина пользователя: {self.user} | Товар: {self.product} в количестве: {self.quantity}'
+    
+    def product_price(self):
+        return round(self.price * self.quantity, 2)

@@ -7,8 +7,9 @@
 </head>
 <body>
     <a>Общая стоимость: {{ full_price }}</a>
-    {% for i in count %}
-        <a>Товар: {{ user_dict['products'][i] }} в количестве: {{ user_dict['quantityes'][i] }} | {{ user_dict['prices'][i] }}</a>
+    {% for cart_object in user_cart %}
+        <br>
+        <a>Товар: {{ cart_object.product }} в количестве: {{ cart_object.quantity }} | {{ cart_object.product_price }}</a>
     {% endfor %}
 </body>
 </html>

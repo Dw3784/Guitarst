@@ -6,44 +6,20 @@ from catalog.models import *
 def main_cart(request):
     if cart_Model.objects.filter(user=request.user).count() != 0:
 
-        user_cart = cart_Model.objects.filter(user=request.user)
+        user_cart = cart_Model.objects.filter(user=request.user)# корзина
         user_prices = cart_Model.objects.filter(user=request.user).values('price')# цены на товары
-        user_products = cart_Model.objects.filter(user=request.user).values('product')# продукты
-        user_quantityes = cart_Model.objects.filter(user=request.user).values('quantity')
-
-        prices = []
+    
+        full_price = 0# общая стоимость товаров в корзине
         for i in range(len(user_prices)):
-            prices.append(user_prices[i]['price'])
+            full_price += user_prices[i]['price']
 
-        products = []
-        for i in range(len(user_products)):
-            products.append(user_products[i]['product'])
-
-        quantityes = []
-        for i in range(len(user_quantityes)):
-            quantityes.append(user_quantityes[i]['quantity'])
-
-
-        user_dict = {
-            'prices': prices,
-            'products': products,
-            'quantityes': quantityes,
-        }
-
-        full_price = 0
-        for i in range(len(prices)):
-            full_price += user_prices[i]['price']# общая стоимость
-
-        count = len(user_dict['prices'])
-        print(user_dict)
         context = {
             'title': 'UserCart',
             'full_price': full_price,
-            'user_dict': user_dict,
-            'count': count,
+            'user_cart': user_cart,
         }
 
-        return render(request, 'main_cart.html')
+        return render(request, 'main_cart.html', context)
     
     elif User.is_authenticated:
         return render(request, 'empty_cart.html')
