@@ -70,9 +70,10 @@ def create_cart(request, slug):
 
 
 # Удаление товара из корзины
-def delete_cart(request, slug):
-    pass
+def delete_cart(request, product_id):
+    cart_Model.objects.filter(user=request.user, id=product_id).delete()
 
+    return redirect(request.META['HTTP_REFERER'])
 
 # Обновление корзины
 def update_cart(request, slug):
