@@ -6,22 +6,22 @@
 {% endblock %}
 
 {% block body %}
-<body>
-    <div class="el-gt"> Электрогитары </div>
-    <div class="wrapper">
-        {% for product in products %}
-        {% if product.category == "el-gt" %}
-            <div class="card">
-                {% if product.image %}
-                    <img src="{{ product.image.url }}" class="card__image">
-                    <div class="card__title"> {{ product.name }} </div>
-                    <a href="{% url 'cart:create_cart' product.slug %}">Добавить в корзину</a>
-                {% else %}
-                    <img src="{% static "images/not.found.jpg" %}" class="card__image">
-                {% endif %}
-            </div>
-        {% endif %}
-        {% endfor %}
-    </div>
-</body>
+    <body>
+        <div class="el-gt"> Электрогитары </div>
+        <div class="wrapper">
+            {% for product in products %}
+            {% if product.category == "el-gt" %}
+                <div class="card">
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" class="card__image">
+                        <div class="card__title"> {{ product.name }} </div>
+                        <a href="{% url 'cart:create_cart' product.slug %}">Добавить в корзину</a>
+                    {% else %}
+                        <img src="{% static "images/not.found.jpg" %}" class="card__image">
+                    {% endif %}
+                </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </body>
 {% endblock %}

@@ -22,7 +22,11 @@ def main_cart(request):
         return render(request, 'main_cart.html', context)
     
     elif User.is_authenticated:
-        return render(request, 'empty_cart.html')
+        context = {
+            'title': 'Empty Cart',
+        }
+
+        return render(request, 'empty_cart.html', context)
     
     else:
         return redirect('user:reg_or_auth')

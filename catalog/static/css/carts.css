@@ -1,0 +1,33 @@
+/* Основа (общее) */
+.add_text, .empty_card_form, .cart_objects, .full_price {
+    font-family: 'JetBrains Mono', sans-serif;
+}
+
+/* Add product */
+.add_text, .empty_card_form{
+   display: grid;
+   justify-items: center;
+   margin: 300px;
+}
+
+
+/* Empty cart */
+.empty_card_form {
+    font-size: 30px;
+}
+
+.empty_card_form__button {
+    font-size: 20px;
+}
+
+
+/* Main cart */
+
+.delete_form__button {
+    font-size: 17px;
+}
+
+.cart_objects {
+    display: grid;
+    justify-items: center;
+}

@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DLF</title>
-</head>
-<body>
-    <form action="{% url 'cart:empty_cart' %}">
-        {% csrf_token %}
-        <a> В корзине нет товаров </a>
-        <input type="submit" value="Начать покупки">
-    </form>
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static "css/carts.css" %}">
+{% endblock %}
+
+{% block body %}
+    <body>
+        <form class="empty_card_form" action="{% url 'cart:empty_cart' %}">
+            {% csrf_token %}
+            <a class="empty_card_form__text"> В корзине нет товаров </a>
+            <input class="empty_card_form__button" type="submit" value="Начать покупки">
+        </form>
+    </body>
+{% endblock %}
