@@ -13,6 +13,9 @@
             <form action="{% url "user:delete_email" %}">
                 <input class="delete_email" type="submit" value="Удалить почту">
             </form>
+            <form action="{% url "user:logout" %}">
+                <input class="logout_button" type="submit" value="Выйти">
+            </form>
         {% else %}
             <h1 class="add_email">Почта не добавлена</h1>
             <form action="{% url "user:add_email" %}">

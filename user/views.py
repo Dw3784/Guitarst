@@ -76,7 +76,6 @@ def add_email(request):
             validate_email(email)
             user = User.objects.filter(username=request.user)
             user.update(email=email)
-            print(user.values('id')[0]['id'])
 
         except:
             return render(request, 'email_error.html')
