@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static "css/user.css" %}">
+{% endblock %}
+
+{% block body %}
+    <body>
+        <form class="add_email" action="{% url "user:add_email" %}" method="post">
+            {% csrf_token %}
+            <input class="add_email__text" type="text" name="email_data">
+            <input class="add_email__button" type="submit" value="Добавить почту">
+        </form>
+    </body>
+{% endblock %}

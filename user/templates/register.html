@@ -1,5 +1,16 @@
-<form method='post' action="{% url 'user:register' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Зарегистрироваться">
-</form>
+{% extends "base.html" %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static "css/user.css" %}">
+{% endblock %}
+
+{% block body %}
+    <body>
+        <form class="form_reg" method='post' action="{% url 'user:register' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="form_reg__button" type="submit" value="Зарегистрироваться">
+        </form>
+    </body>
+{% endblock %}

@@ -1,16 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
-</head>
-<body>
-    <form action="{% url 'user:login' %}">
-        <button>{{ button1 }}</button>
-    </form>
-    <form action="{% url 'user:register' %}">
-        <button>{{ button2 }}</button>
-    </form>
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static "css/user.css" %}">
+{% endblock %}
+
+{% block body %}
+    <body>
+        <div class="buttons_container">
+            <form action="{% url 'user:login' %}">
+                <button class="login_button">{{ button1 }}</button>
+            </form>
+            <form action="{% url 'user:register' %}">
+                <button class="reg_button">{{ button2 }}</button>
+            </form>
+        </div>
+    </body>
+{% endblock %}

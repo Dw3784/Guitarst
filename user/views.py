@@ -2,9 +2,10 @@ from typing import Any
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import *
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView
 from django.urls import reverse_lazy
 from .forms import *
+from django.core.validators import *
 
 # Регистрация или вход
 def reg_or_auth_view(request):
@@ -22,7 +23,6 @@ def login_view(request):
     if request.method == 'POST':
         form = person_form(request.POST)
         if form.is_valid():
-            # cd = form.cleaned_data
             username = request.POST['login']
             password = request.POST['password']
             user = authenticate(username=username, password=password)
@@ -53,8 +53,42 @@ class register_view(CreateView):
 
 
 # Профиль пользователя
-class profile_view(DetailView):
-    template_name = 'profile.html'
-    form_class = profile_form
-    context_object_name = 'form'
-    model = User
+def profile_view(request, pk):
+    user = User.objects.filter(pk=pk)
+    
+    username = user.values('username')[0]['username']
+    if user.values('email').exists():
+        email = user.values('email')[0]['email']
+
+    context = {
+        'username': username,
+        'email': email,
+    }
+    
+    return render(request, 'profile.html', context)
+
+
+# Добавление почты
+def add_email(request):
+    if request.method == 'POST':
+        email = request.POST.get("email_data")
+        try:
+            validate_email(email)
+            user = User.objects.filter(username=request.user)
+            user.update(email=email)
+            print(user.values('id')[0]['id'])
+
+        except:
+            return render(request, 'email_error.html')
+        
+        return redirect('user:profile', user.values('id')[0]['id'])
+
+    else:
+        return render(request, 'email.html')
+    
+# Удаление почты
+def delete_email(request):
+    user = User.objects.filter(username=request.user)
+    user = user.values('email').update(email='')
+
+    return redirect(request.META['HTTP_REFERER'])

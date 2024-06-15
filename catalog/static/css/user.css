@@ -1,0 +1,36 @@
+/* Форма для регистрации */
+.email_field, .password1, .password2, .form_reg, .username, .email, .add_email  {
+    font-family: 'JetBrains Mono', sans-serif;
+    font-size: 20px;
+}
+
+/* Форма */
+.form_reg { 
+    display: grid;
+    justify-items: center;
+    margin: 170px;
+}
+
+.form_reg__button {
+    font-family: 'JetBrains Mono', sans-serif;
+    font-size: 15px;
+}
+
+
+/* Регистрация или авторизация */
+.login_button, .reg_button {
+    padding: 30px 140px;
+    font-family: 'JetBrains Mono', sans-serif;
+}
+
+.buttons_container {
+    display: grid;
+    justify-items: center;
+    margin: 230px;
+}
+
+
+/* Профиль */
+.add_email_button {
+    font-family: 'JetBrains Mono', sans-serif;
+}
