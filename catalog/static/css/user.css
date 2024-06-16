@@ -1,5 +1,5 @@
 /* Форма для регистрации */
-.email_field, .password1, .password2, .form_reg, .username, .email, .add_email  {
+.email_field, .password1, .password2, .form_reg, .username, .email {
     font-family: 'JetBrains Mono', sans-serif;
     font-size: 20px;
 }
@@ -31,6 +31,37 @@
 
 
 /* Профиль */
-.add_email_button {
+.add_email_button, .delete_email_button, .logout_button {
     font-family: 'JetBrains Mono', sans-serif;
+}
+
+.add_email {
+    font-family: 'JetBrains Mono', sans-serif;
+    font-size: 20px;
+}
+
+.delete_email_button { 
+    margin-bottom: 10px;
+}
+
+
+/* Добавление почты */
+.add_email__button {
+    font-family: 'JetBrains Mono', sans-serif;
+}
+
+.add_email__text {
+    margin-right: 10px;
+    font-size: 15px;
+}
+
+.add_email__button {
+    padding: 15px;
+}
+
+.add_email_form {
+    display: flex ;
+    justify-content: center;
+    margin-top: 310px;
+    margin-right: 25px;
 }
