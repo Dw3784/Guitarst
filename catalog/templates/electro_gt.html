@@ -12,14 +12,16 @@
             {% for product in products %}
             {% if product.category == "el-gt" %}
                 <div class="card">
-                    {% if product.image %}
-                        <img src="{{ product.image.url }}" class="card__image">
-                        <div class="card__title"> {{ product.name }} </div>
-                        <div class="card_price"> {{ product.price }}руб</div>
-                        <a class="in_cart" href="{% url 'cart:create_cart' product.slug %}">В корзину</a>
-                    {% else %}
-                        <img src="{% static "images/not.found.jpg" %}" class="card__image">
-                    {% endif %}
+                    <a class="card__link" href="{% url "catalog:extra_inf" product.pk %}">
+                        {% if product.image %}
+                            <img src="{{ product.image.url }}" class="card__image">
+                            <div class="card__title"> {{ product.name }} </div>
+                            <div class="card_price"> {{ product.price }}руб</div>
+                            <a class="in_cart" href="{% url 'cart:create_cart' product.slug %}">В корзину</a>
+                        {% else %}
+                            <img src="{% static "images/not.found.jpg" %}" class="card__image">
+                        {% endif %}
+                    </a>
                 </div>
             {% endif %}
             {% endfor %}

@@ -22,4 +22,6 @@ urlpatterns = [
     path('dops/', include(dops_patterns)),
     path('guitars/', views.guitars_ListView.as_view(), name = 'Guitars'),
     path('guitars/', include(guitar_patterns)),
+
+    path('extra_inf/<int:pk>', views.extra_inf, name = 'extra_inf'),
 ]

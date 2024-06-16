@@ -4,7 +4,7 @@ from .models import pproducts, categories
 from django.views.generic import ListView
 from django.contrib.auth.models import User
 
-#Каталог
+# Каталог
 def main(request):
     context = {
         'title': 'Main',
@@ -14,7 +14,7 @@ def main(request):
     return render(request, 'main.html', context)
 
 
-#Гитары
+# Гитары
 class guitars_ListView(ListView):
     model = categories
     context_object_name =  'categories'
@@ -27,10 +27,10 @@ class guitars_ListView(ListView):
         return context
 
 
-#Акустические гитары
+# Акустические гитары
 def ac_gt(request):
-
     products = pproducts.objects.all()
+
     context = {
         'title': 'Acoustic Guitars',
         'products': products,
@@ -39,7 +39,7 @@ def ac_gt(request):
     return render(request, 'ac_gt.html', context)
 
 
-#Бас гитары
+# Бас гитары
 class bass_gt_ListView(ListView):
     model = pproducts
     template_name = 'bass_gt.html'
@@ -61,7 +61,7 @@ class bass_gt_ListView(ListView):
 #     return render(request, 'bass_gt.html', context)
 
 
-#Электро гитары
+# Электро гитары
 def electro_gt(request):
     products = pproducts.objects.all()
 
@@ -73,7 +73,7 @@ def electro_gt(request):
     return render(request, 'electro_gt.html', context)
 
 
-#Аксессуары
+# Аксессуары
 def dops(request):
     categorys = categories.objects.all()
 
@@ -140,3 +140,20 @@ class others_ListView(ListView):
 #     }
 
 #     return render(request, 'dops/others.html', context)
+
+# Доп информация о товаре
+def extra_inf(request, pk):
+    product = pproducts.objects.filter(pk=pk)
+    
+    context = {
+        'name': product.values('name')[0]['name'],
+        'price': product.values('price')[0]['price'],
+        'quantity': product.values('quantity')[0]['quantity'],
+        'description': product.values('description')[0]['description'],
+        'title1': 'Описание',
+        'title2': 'Наличие',
+        'title3': 'Цена',
+        'no_product': 'Нет в наличии',
+    }
+
+    return render(request, 'extra_inf.html', context)

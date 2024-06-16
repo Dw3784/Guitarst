@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static "css/extra_inf.css" %}">
+{% endblock %}
+
+{% block body %}
+    <body>
+        <h1 class="product_name">{{ name }}</h1>
+        <h2>{{ title1 }}</h2>
+        <span class="product_des">{{ description }}</span>
+        <h2>{{ title2 }}</h2>
+        {% if quantity != 0 %}
+            <span class="product_quantity">{{ quantity }}</span>
+        {% else %}
+            <span class="product_quantity">{{ no_product }}</span>
+        {% endif %}
+        <h2>{{ title3 }}</h2>
+        <span class="product_price">{{ price }}</span>
+    </body>
+{% endblock %}
