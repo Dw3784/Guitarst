@@ -60,3 +60,37 @@
     margin-right: 220px;
     margin-top: 5px;
 }
+
+
+/* Пагинация */
+
+.pagination_link_select {
+    border-radius: 6px;
+    background-color: #4CAF50;
+    padding: 7px;
+    color: black;
+    text-decoration: none;
+}
+
+.pagination_link, .pagination_link_next, .pagination_link_prev {
+    text-decoration: none;
+    color: black;
+}
+
+.pagination_link {
+    padding: 7px;
+    background-color: gainsboro;
+    border-radius: 6px;
+}
+
+.pagination_li {
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    list-style: none;
+}
+
+.pagination_wrapper {
+    margin-left: 600px;
+    margin-top: 140px;
+}
