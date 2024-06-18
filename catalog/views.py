@@ -36,7 +36,7 @@ def get_pagination(model, request, category):
 
     products = model.objects.filter(category=category)
 
-    pagination = Paginator(products, 2)# разбиение по страницам
+    pagination = Paginator(products, 4)# разбиение по страницам
     page_number = request.GET.get('page')# количество страниц
     page = pagination.get_page(page_number)# страница для отображения
     return [page, pagination]
@@ -59,17 +59,6 @@ def ac_gt(request):
     return render(request, 'ac_gt.html', context)
 
 
-# Бас гитары
-# class bass_gt_ListView(ListView):
-#     model = pproducts
-#     template_name = 'bass_gt.html'
-#     context_object_name = 'products'
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['title'] = 'Bass Guitars'
-#         context['title1'] = 'Бас гитары'
-#         return context
 # Бас гитары
 def bass_gt(request):
     pagin = get_pagination(pproducts, request, category='bass-gt')
@@ -165,17 +154,6 @@ def capo(request):
     }
 
     return render(request, 'dops/capo.html', context)
-
-
-# class others_ListView(ListView):
-#     model = pproducts
-#     context_object_name = 'products'
-#     template_name = 'dops/others.html'
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context["title"] = 'Others'
-#         return context
     
 
 # Другие товары

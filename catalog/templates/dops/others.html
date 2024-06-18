@@ -1,53 +1,28 @@
-{% extends "base.html" %}
+{% extends "base_product.html" %}
 {% load static %}
 
 {% block link %}
     <link rel="stylesheet" href="{% static "css/dops.css" %}">
 {% endblock %}
 
-{% block body %}
-    <body>
-            <div class="others">{{ title1 }}</div>
-        <div class="wrapper">
-            {% for product in products %}
-            {% if product.category == "others" %}
-                <div class="card">
-                    <a class="card__link" href="{% url "catalog:extra_inf" product.pk %}">
-                        {% if product.image %}
-                            <img src="{{ product.image.url }}" class="card__image">
-                            <div class="card__title"> {{ product.name }} </div>
-                            <div class="card_price"> {{ product.price }}руб</div>
-                            <a class="in_cart" href="{% url 'cart:create_cart' product.slug %}">В корзину</a>
-                        {% else %}
-                            <img src="{% static "images/not.found.jpg" %}" class="card__image">
-                        {% endif %}
-                    </a>
-                </div>
-            {% endif %}
-            {% endfor %}
-        </div>
-        {% if products.has_other_pages %}
-            <div class="pagination_wrapper">
-                <nav class="pagination_nav">
-                    <ul class="pagination_ul"> 
-                        {% if products.has_previous %}
-                            <li class="pagination_li"><a class="pagination_link_prev" href="?page={{ p.previous_page_number }}">&#8592;</a></li>
-                        {% endif %}
-
-                        {% for p in paginator.page_range %}
-                            {% if products.number == p %}
-                                <li class="pagination_li"><a class="pagination_link_select">{{ p }}</a></li>
-                            {% elif p >= products.number|add:-2 and p <= products.number|add:2 %}
-                                <li class="pagination_li"><a class="pagination_link" href="?page={{ p }}">{{ p }}</a></li>
-                            {% endif %}
-                        {% endfor %}
-
-                        {% if products.has_next %}
-                            <li class="pagination_li"><a class="pagination_link_next" href="?page={{ products.next_page_number }}">&#8594;</a></li>
-                        {% endif %}
-                    </ul>
-                </nav>
+{% block product %}
+    <div class="others">{{ title1 }}</div>
+    <div class="wrapper">
+        {% for product in products %}
+        {% if product.category == "others" %}
+            <div class="card">
+                <a class="card__link" href="{% url "catalog:extra_inf" product.pk %}">
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" class="card__image">
+                        <div class="card__title"> {{ product.name }} </div>
+                        <div class="card_price"> {{ product.price }}руб</div>
+                        <a class="in_cart" href="{% url 'cart:create_cart' product.slug %}">В корзину</a>
+                    {% else %}
+                        <img src="{% static "images/not.found.jpg" %}" class="card__image">
+                    {% endif %}
+                </a>
             </div>
         {% endif %}
-    </body>
+        {% endfor %}
+    </div>
 {% endblock %}

@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block link %}{% endblock %}
+    <title> {{ title }} </title>
+</head>
+<body>
+    {% block product %}{% endblock %}
+    {% if products.has_other_pages %}
+        <div class="pagination_wrapper">
+            <nav class="pagination_nav">
+                <ul class="pagination_ul"> 
+                    {% if products.has_previous %}
+                        <li class="pagination_li"><a class="pagination_link_prev" href="?page={{ p.previous_page_number }}">&#8592;</a></li>
+                    {% endif %}
+
+                    {% for p in paginator.page_range %}
+                        {% if products.number == p %}
+                            <li class="pagination_li"><a class="pagination_link_select">{{ p }}</a></li>
+                        {% elif p >= products.number|add:-2 and p <= products.number|add:2 %}
+                            <li class="pagination_li"><a class="pagination_link" href="?page={{ p }}">{{ p }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if products.has_next %}
+                        <li class="pagination_li"><a class="pagination_link_next" href="?page={{ products.next_page_number }}">&#8594;</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    {% endif %}
+</body>
+</html>

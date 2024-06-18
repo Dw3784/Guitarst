@@ -1,5 +1,4 @@
 /* Каталог */
-
 .header, .ul__li, .catalog, .ac-gt, .el-gt, .bass-gt, .guitars {
     font-family: 'JetBrains Mono', sans-serif;
     font-size: 20px;
@@ -42,7 +41,6 @@
 
 
 /* Карты товаров */
-
 .card {
     background-color: rgba(77, 61, 61, 0.557);
     width: 300px;
@@ -92,8 +90,8 @@
     margin-top: 5px;
 }
 
-/* Пагинация */
 
+/* Пагинация */
 .pagination_link_select {
     border-radius: 6px;
     background-color: #4CAF50;

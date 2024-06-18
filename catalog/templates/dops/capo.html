@@ -1,12 +1,11 @@
-{% extends "base.html" %}
+{% extends "base_product.html" %}
 {% load static %}
 
 {% block link %}
     <link rel="stylesheet" href="{% static "css/dops.css" %}">
 {% endblock %}
 
-{% block body %}
-<body>
+{% block product %}
     <div class="capo">{{ title1 }}</div>
     <div class="wrapper">
         {% for product in products %}
@@ -26,28 +25,4 @@
         {% endif %}
         {% endfor %}
     </div>
-    {% if products.has_other_pages %}
-            <div class="pagination_wrapper">
-                <nav class="pagination_nav">
-                    <ul class="pagination_ul"> 
-                        {% if products.has_previous %}
-                            <li class="pagination_li"><a class="pagination_link_prev" href="?page={{ p.previous_page_number }}">&#8592;</a></li>
-                        {% endif %}
-
-                        {% for p in paginator.page_range %}
-                            {% if products.number == p %}
-                                <li class="pagination_li"><a class="pagination_link_select">{{ p }}</a></li>
-                            {% elif p >= products.number|add:-2 and p <= products.number|add:2 %}
-                                <li class="pagination_li"><a class="pagination_link" href="?page={{ p }}">{{ p }}</a></li>
-                            {% endif %}
-                        {% endfor %}
-
-                        {% if products.has_next %}
-                            <li class="pagination_li"><a class="pagination_link_next" href="?page={{ products.next_page_number }}">&#8594;</a></li>
-                        {% endif %}
-                    </ul>
-                </nav>
-            </div>
-        {% endif %}
-</body>
 {% endblock %}
