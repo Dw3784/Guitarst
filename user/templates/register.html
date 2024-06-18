@@ -6,11 +6,9 @@
 {% endblock %}
 
 {% block body %}
-    <body>
-        <form class="form_reg" method='post' action="{% url 'user:register' %}">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input class="form_reg__button" type="submit" value="Зарегистрироваться">
-        </form>
-    </body>
+    <form class="form_reg" method='post' action="{% url 'user:register' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="form_reg__button" type="submit" value="Зарегистрироваться">
+    </form>
 {% endblock %}

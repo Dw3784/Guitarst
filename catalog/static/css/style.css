@@ -1,5 +1,5 @@
 /* Каталог */
-.header, .ul__li, .catalog, .ac-gt, .el-gt, .bass-gt, .guitars {
+.catalog, .ul__li, .header {
     font-family: 'JetBrains Mono', sans-serif;
     font-size: 20px;
 }
@@ -8,6 +8,16 @@
     text-decoration: none;
     line-height: 17px;
     color: black;
+}
+
+.body {
+    margin: 0;
+}
+
+.header {
+    margin: 0;
+    padding-bottom: 60px;
+    background-color: gainsboro;
 }
 
 .nav, .ul {
@@ -22,7 +32,7 @@
     margin: 0 35px;
 }
 
-.header {
+.catalog {
     float: left;
     font-size: 40px;
 }
@@ -34,13 +44,19 @@
 }
 
 .figure {
-    width: 1450px;
-    height: 1080px;
+    height: 643px;
     overflow: hidden;
+    margin: 0;
 }
 
 
 /* Карты товаров */
+.ac-gt, .bass-gt, .el-gt, .guitars, .gt, .dops_title, .mediat_title, .strings_title, .capo_title, .others_title  {
+    margin-top: 15px;
+    font-family: 'JetBrains Mono', sans-serif;
+    font-size: 20px;
+}
+
 .card {
     background-color: rgba(77, 61, 61, 0.557);
     width: 300px;
@@ -67,7 +83,7 @@
     justify-items: center;
     grid-row-gap: 20px;
     margin: 0 0;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .in_cart, .card_price {
@@ -120,5 +136,14 @@
 
 .pagination_wrapper {
     margin-left: 600px;
-    margin-top: 140px;
+    margin-top: 90px;
+}
+
+/* Доп информация о товаре */
+.product_name, .product_des, .product_quantity, .product_price, .product_des_name, .product_quantity_name, .product_price_name {
+    font-family: 'JetBrains Mono', sans-serif;
+}
+
+.product_des {
+    font-size: 20px;
 }

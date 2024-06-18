@@ -1,3 +1,49 @@
+/* Шапка */
+.catalog, .ul__li, .header {
+    font-family: 'JetBrains Mono', sans-serif;
+    font-size: 20px;
+}
+
+.card__link {
+    text-decoration: none;
+    line-height: 17px;
+    color: black;
+}
+
+.body {
+    margin: 0;
+}
+
+.header {
+    margin: 0;
+    padding-bottom: 60px;
+    background-color: gainsboro;
+}
+
+.nav, .ul {
+    float: right;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ul__li {
+    display: inline-block;
+    margin: 0 35px;
+}
+
+.catalog {
+    float: left;
+    font-size: 40px;
+}
+
+.ul__link {
+    text-decoration: none;
+    line-height: 60px;
+    color: black;
+}
+
+
 /* Форма для регистрации */
 .email_field, .password1, .password2, .form_reg, .username, .email {
     font-family: 'JetBrains Mono', sans-serif;
@@ -63,6 +109,40 @@
 .add_email_form {
     display: flex ;
     justify-content: center;
-    margin-top: 310px;
+    margin-top: 300px;
     margin-right: 25px;
+}
+
+
+/* Авторизация */
+.auth {
+    font-family: 'JetBrains Mono', sans-serif;
+    font-size: 20px;
+}
+
+.auth__per-form {
+    text-align: center;
+    margin: 220px 0;
+    margin-right: 100px;
+}
+
+.auth-f, .auth-f1 {
+    padding: 20px 200px;
+    font-family: 'JetBrains Mono', sans-serif;
+}
+
+.auth-f1 {
+    margin-right: 12px;
+}
+
+.auth__auth-input {
+    font-family: 'JetBrains Mono', sans-serif;
+    float: left;
+    margin: 20px 0 0 962px;
+    margin-right: 50px;
+    padding: 8px 25px;
+}
+
+.auth__header {
+    margin-top: 15px;
 }

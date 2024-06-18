@@ -6,24 +6,22 @@
 {% endblock %}
 
 {% block body %}
-    <body>
-        <h1 class="username">Имя пользователя: {{ username }}</h1>
-        {% if email %}
-            <h1 class="email">Почта: {{ email }}</h1>
-            <form action="{% url "user:delete_email" %}">
-                <input class="delete_email_button" type="submit" value="Удалить почту">
-            </form>
-            <form action="{% url "user:logout" %}">
-                <input class="logout_button" type="submit" value="Выйти">
-            </form>
-        {% else %}
-            <h1 class="add_email">Почта не добавлена</h1>
-            <form action="{% url "user:add_email" %}">
-                <input class="add_email_button" type="submit" value="Добавить почту">
-            </form>
-            <form action="{% url "user:logout" %}">
-                <input class="logout_button" type="submit" value="Выйти">
-            </form>
-        {% endif %}
-    </body>
+    <h1 class="username">Имя пользователя: {{ username }}</h1>
+    {% if email %}
+        <h1 class="email">Почта: {{ email }}</h1>
+        <form action="{% url "user:delete_email" %}">
+            <input class="delete_email_button" type="submit" value="Удалить почту">
+        </form>
+        <form action="{% url "user:logout" %}">
+            <input class="logout_button" type="submit" value="Выйти">
+        </form>
+    {% else %}
+        <h1 class="add_email">Почта не добавлена</h1>
+        <form action="{% url "user:add_email" %}">
+            <input class="add_email_button" type="submit" value="Добавить почту">
+        </form>
+        <form action="{% url "user:logout" %}">
+            <input class="logout_button" type="submit" value="Выйти">
+        </form>
+    {% endif %}
 {% endblock %}

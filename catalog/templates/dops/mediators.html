@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block link %}
-    <link rel="stylesheet" href="{% static "css/dops.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
 {% endblock %}
 
 {% block product %}
-    <div class="mediat">{{ title1 }}</div>
+    <div class="mediat_title">{{ title1 }}</div>
     <div class="wrapper">
         {% for product in products %}
         {% if product.category == "mediators" %}

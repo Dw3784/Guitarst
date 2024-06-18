@@ -6,25 +6,23 @@
 {% endblock %}
 
 {% block body %}
-    <body>
-        <div class="guitars">
-            <h1> {{ title1 }} </h1>
-            <div class="wrapper">
-                {% for category in categories %}
-                {% if category.category == "guitars" %}
-                    <div class="card">
-                        <a class="card__link" href="{% url category.url_name %}">
-                            {% if category.image %}
-                                <img src="{{ category.image.url }}" class="card__image">
-                                <p> {{ category.name }} </p>
-                            {% else %}
-                                <img src="{% static "images/not.found.jpg" %}" class="card__image">
-                            {% endif %}
-                        </a>
-                    </div>
-                {% endif %}
-                {% endfor %}
-            </div>
+    <div class="guitars">
+        <div class="gt"> {{ title1 }} </div>
+        <div class="wrapper">
+            {% for category in categories %}
+            {% if category.category == "guitars" %}
+                <div class="card">
+                    <a class="card__link" href="{% url category.url_name %}">
+                        {% if category.image %}
+                            <img src="{{ category.image.url }}" class="card__image">
+                            <p> {{ category.name }} </p>
+                        {% else %}
+                            <img src="{% static "images/not.found.jpg" %}" class="card__image">
+                        {% endif %}
+                    </a>
+                </div>
+            {% endif %}
+            {% endfor %}
         </div>
-    </body>
+    </div>
 {% endblock %}

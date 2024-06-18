@@ -6,11 +6,9 @@
 {% endblock %}
 
 {% block body %}
-    <body>
-        <form class="empty_card_form" action="{% url 'cart:empty_cart' %}">
-            {% csrf_token %}
-            <a class="empty_card_form__text"> В корзине нет товаров </a>
-            <input class="empty_card_form__button" type="submit" value="Начать покупки">
-        </form>
-    </body>
+    <form class="empty_card_form" action="{% url 'cart:empty_cart' %}">
+        {% csrf_token %}
+        <a class="empty_card_form__text"> В корзине нет товаров </a>
+        <input class="empty_card_form__button" type="submit" value="Начать покупки">
+    </form>
 {% endblock %}

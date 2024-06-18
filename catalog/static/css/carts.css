@@ -1,17 +1,63 @@
+/* Шапка */
+.catalog, .ul__li, .header {
+    font-family: 'JetBrains Mono', sans-serif;
+    font-size: 20px;
+}
+
+.card__link {
+    text-decoration: none;
+    line-height: 17px;
+    color: black;
+}
+
+.body {
+    margin: 0;
+}
+
+.header {
+    margin: 0;
+    padding-bottom: 60px;
+    background-color: gainsboro;
+}
+
+.nav, .ul {
+    float: right;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ul__li {
+    display: inline-block;
+    margin: 0 35px;
+}
+
+.catalog {
+    float: left;
+    font-size: 40px;
+}
+
+.ul__link {
+    text-decoration: none;
+    line-height: 60px;
+    color: black;
+}
+
+
 /* Основа (общее) */
 .add_text, .empty_card_form, .cart_objects, .full_price {
     font-family: 'JetBrains Mono', sans-serif;
 }
 
-/* Add product */
+/* Добавить в корзину */
 .add_text, .empty_card_form{
    display: grid;
    justify-items: center;
-   margin: 300px;
+   margin: 260px;
 }
 
 
-/* Empty cart */
+/* Пустая корзина */
 .empty_card_form {
     font-size: 30px;
 }
@@ -21,7 +67,7 @@
 }
 
 
-/* Main cart */
+/* Главная корзина */
 .delete_form__button {
     font-size: 17px;
 }

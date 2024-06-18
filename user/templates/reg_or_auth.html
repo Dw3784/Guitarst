@@ -6,14 +6,12 @@
 {% endblock %}
 
 {% block body %}
-    <body>
-        <div class="buttons_container">
-            <form action="{% url 'user:login' %}">
-                <button class="login_button">{{ button1 }}</button>
-            </form>
-            <form action="{% url 'user:register' %}">
-                <button class="reg_button">{{ button2 }}</button>
-            </form>
-        </div>
-    </body>
+    <div class="buttons_container">
+        <form action="{% url 'user:login' %}">
+            <button class="login_button">{{ button1 }}</button>
+        </form>
+        <form action="{% url 'user:register' %}">
+            <button class="reg_button">{{ button2 }}</button>
+        </form>
+    </div>
 {% endblock %}

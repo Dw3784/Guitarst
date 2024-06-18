@@ -8,7 +8,22 @@
     {% block link %}{% endblock %}
     <title> {{ title }} </title>
 </head>
-<body>
+<body class="body">
+    <header class="header">
+        <div class="catalog"><a class="ul__link" href="{% url 'catalog:Main' %}">Каталог</div>
+        <nav class="nav">
+            <ul class="ul">
+                <li class="ul__li"><a class="ul__link" href="{% url 'catalog:Guitars' %}">Гитары</a></li>
+                <li class="ul__li"><a class="ul__link" href="{% url 'catalog:Dops' %}">Аксесуары и комплектующие</a></li>
+                {% if request.user.is_authenticated %}
+                    <li class="ul__li"><a class="ul__link" href="{% url 'user:profile' user.pk %}">Аккаунт</a></li>
+                {% else %}
+                    <li class="ul__li"><a class="ul__link" href="{% url 'user:reg_or_auth' %}">Регистрация и вход</a></li>
+                {% endif %}
+                <li class="ul__li"><a class="ul__link" href="{% url 'cart:cart' %}">Корзина</a></li>
+            </ul>
+        </nav>
+    </header>
     {% block product %}{% endblock %}
     {% if products.has_other_pages %}
         <div class="pagination_wrapper">

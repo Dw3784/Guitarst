@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block link %}
-    <link rel="stylesheet" href="{% static "css/dops.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
 {% endblock %}
 
 {% block product %}
-    <div class="others">{{ title1 }}</div>
+    <div class="others_title">{{ title1 }}</div>
     <div class="wrapper">
         {% for product in products %}
         {% if product.category == "others" %}

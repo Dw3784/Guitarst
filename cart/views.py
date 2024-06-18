@@ -21,7 +21,7 @@ def main_cart(request):
 
         return render(request, 'main_cart.html', context)
     
-    elif User.is_authenticated:
+    elif request.user.is_authenticated:
         context = {
             'title': 'Empty Cart',
         }
