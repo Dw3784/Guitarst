@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static "css/carts.css" %}">
+{% endblock %}
+
+{% block body %}
+<style>
+    .success {
+        font-family: 'JetBrains Mono', sans-serif;
+        font-size: 30px;
+        background: red; 
+        display: flex ;
+        justify-content: center;
+    }
+
+    .message_wrapper {
+        width: 100%;
+        float: left;
+        margin: 0;
+    }
+</style>
+<div class="message_wrapper">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+</div>
+<form class="order_form" action="{% url "cart:create_order" %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input class="order_form__input" type="submit" value="Оформить заказ"> 
+</form>
+{% endblock %}

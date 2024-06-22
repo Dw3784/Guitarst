@@ -78,8 +78,14 @@
 
 
 /* Профиль */
-.add_email_button, .delete_email_button, .logout_button {
+.add_email_button, .delete_email_button, .logout_button, .orders_wrapper__name, 
+.orders_wrapper__title, .orders_wrapper__address, .orders_wrapper__products, 
+.orders_wrapper__status, .profile_email, .profile_username, .order_wrapper__product {
     font-family: 'JetBrains Mono', sans-serif;
+}
+
+.profile_username {
+    margin-top: 25px;
 }
 
 .add_email {
@@ -89,6 +95,19 @@
 
 .delete_email_button { 
     margin-bottom: 10px;
+}
+
+.orders_wrapper__products {
+    margin-top: 25px;
+}
+
+.orders_wrapper__title {
+    display: grid;
+    justify-items: center;
+}
+
+.orders_wrapper {
+    margin-top: 50px;
 }
 
 

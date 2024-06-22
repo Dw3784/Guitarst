@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from .models import *
 from catalog.models import *
+from .forms import *
+from django.db import transaction
+from django.contrib import messages
+from django.core.exceptions import *
 
 # Основное отображение корзины
 def main_cart(request):
@@ -78,3 +82,69 @@ def delete_cart(request, product_id):
     cart_Model.objects.filter(user=request.user, id=product_id).delete()
 
     return redirect(request.META['HTTP_REFERER'])
+
+
+
+# Оформление и отображение заказа
+def create_order(request):
+    if request.method == 'POST':
+        form = order_form(request.POST)
+        if form.is_valid():
+            try:
+                with transaction.atomic():
+                    user = request.user
+                    cart_objects = cart_Model.objects.filter(user=user)
+
+                    order = order_Model.objects.create(
+                        phone_number = form.cleaned_data['phone_number'],
+                        first_name = form.cleaned_data['first_name'],
+                        last_name = form.cleaned_data['last_name'],
+                        address = form.cleaned_data['address'],
+                        paid_choice = form.cleaned_data['paid_choice'],
+                        delivery_choice = form.cleaned_data['delivery_choice'],
+                        user = user,
+                    )
+
+                    for cart_object in cart_objects:
+                        product = cart_object.product
+                        price = cart_object.price
+                        quantity = cart_object.quantity
+                        product_quantity = pproducts.objects.filter(name=product).values('quantity')[0]['quantity']
+
+                        if quantity > product_quantity:
+                            raise ValidationError(f'Недостаточное количество товара {product} на складе\
+                                                   В наличии - {quantity}')
+
+                        else:
+
+                            order_products_Model.objects.create(
+                                product = product,
+                                price = price,
+                                quantity = quantity,
+                                order = order,
+                            )
+
+                            new_product_quantity = product_quantity - quantity# Обновление количества товаров
+                            pproducts.objects.filter(name=product).values('quantity').update(quantity=new_product_quantity)
+                            cart_objects.delete()
+
+                    messages.success(request, 'Заказ оформлен!')
+                    return redirect('user:profile', user.pk)
+
+            except ValidationError as e:
+                messages.success(request, list(e)[0])
+                return redirect('cart:create_order')
+                
+    else:
+        initial = {
+            'first_name': request.user.first_name,
+            'last_name': request.user.last_name,
+        }
+
+        form = order_form(initial=initial)
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'order.html', context)

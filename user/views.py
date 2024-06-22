@@ -6,6 +6,7 @@ from django.views.generic import CreateView
 from django.urls import reverse_lazy
 from .forms import *
 from django.core.validators import *
+from cart.models import *
 
 # Регистрация или вход
 def reg_or_auth_view(request):
@@ -54,15 +55,38 @@ class register_view(CreateView):
 
 # Профиль пользователя
 def profile_view(request, pk):
-    user = User.objects.filter(pk=pk)
+    user = User.objects.filter(pk=pk)# Пользователь
+    try:
+        order = order_Model.objects.filter(user=request.user)# Заказ
+        address = order.values('address')[0]['address']# Адрес
+        first_name = order.values('first_name')[0]['first_name']# Имя
+        last_name = order.values('last_name')[0]['last_name']# Фамилия
+        status = order.values('status')[0]['status']# Статус
+
+    except:
+        print('Нет заказов')
+        address = 'address'
+        first_name = 'first_name'
+        last_name = 'last_name'
+        status = 'status'
+        order_products = 'order_products'
+
+    order_products = []# Заказанные товары
+    for i in order_products_Model.objects.all():
+        order_products.append(i.product)
     
-    username = user.values('username')[0]['username']
+    username = user.values('username')[0]['username']# Имя пользователя
     if user.values('email').exists():
-        email = user.values('email')[0]['email']
+        email = user.values('email')[0]['email']# Почта
 
     context = {
         'username': username,
         'email': email,
+        'address': address,
+        'first_name': first_name,
+        'last_name': last_name,
+        'status': status,
+        'order_products': order_products,
     }
     
     return render(request, 'profile.html', context)

@@ -45,7 +45,7 @@
 
 
 /* Основа (общее) */
-.add_text, .empty_card_form, .cart_objects, .full_price {
+.add_text, .empty_card_form, .cart_objects, .full_price, .order_form {
     font-family: 'JetBrains Mono', sans-serif;
 }
 
@@ -75,4 +75,30 @@
 .cart_objects {
     display: grid;
     justify-items: center;
+}
+
+.show_order__button {
+    margin-top: 35px;
+    margin-left: 1070px;
+    padding: 20px;
+}
+
+/* Оформление заказа */
+.order_form {
+    font-size: 20px;
+    display: grid;
+    justify-items: center;
+    margin-top: 230px;
+}
+
+.order_form__input {
+    font-size: 15px;
+    margin-top: 15px;
+    padding: 5px 18px;
+}
+
+.success {
+    color: red;
+    font-size: 40px;
+    background: red;
 }

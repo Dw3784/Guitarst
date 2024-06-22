@@ -6,9 +6,31 @@
 {% endblock %}
 
 {% block body %}
-    <h1 class="username">Имя пользователя: {{ username }}</h1>
+    <style>
+        .success {
+            font-family: 'JetBrains Mono', sans-serif;
+            font-size: 30px;
+            background: green; 
+            display: flex ;
+            justify-content: center;
+        }
+
+        .message_wrapper {
+            width: 100%;
+            float: left;
+            margin: 0;
+        }
+    </style>
+    <div class="message_wrapper">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <h2 class="profile_username">Имя пользователя: {{ username }}</h2>
     {% if email %}
-        <h1 class="email">Почта: {{ email }}</h1>
+        <h2 class="profile_email">Почта: {{ email }}</h2>
         <form action="{% url "user:delete_email" %}">
             <input class="delete_email_button" type="submit" value="Удалить почту">
         </form>
@@ -16,12 +38,24 @@
             <input class="logout_button" type="submit" value="Выйти">
         </form>
     {% else %}
-        <h1 class="add_email">Почта не добавлена</h1>
+        <h2 class="add_email">Почта не добавлена</h2>
         <form action="{% url "user:add_email" %}">
             <input class="add_email_button" type="submit" value="Добавить почту">
         </form>
         <form action="{% url "user:logout" %}">
             <input class="logout_button" type="submit" value="Выйти">
         </form>
+    {% endif %}
+    {% if order_products %}
+        <div class="orders_wrapper">
+            <h2 class="orders_wrapper__title">Заказы</h2>
+            <h2 class="orders_wrapper__name">Имя и фамилия получателя: {{ first_name }} {{ last_name }}</h2>
+            <h2 class="orders_wrapper__address">Адрес доставки: {{ address }}</h2>
+            <h2 class="orders_wrapper__status">Статус заказа: {{ status }}</h2>
+            <h2 class="orders_wrapper__products">Товары:</h2>
+            {% for product in order_products %}
+                <h3 class="order_wrapper__product">{{ product }}</h3>
+            {% endfor %}
+        </div>
     {% endif %}
 {% endblock %}

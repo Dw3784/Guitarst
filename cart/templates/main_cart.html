@@ -15,5 +15,8 @@
                 <button class="delete_form__button" type="submit">Удалить товар из корзины</button>
             </form>
         {% endfor %}
+        <form class="show_order" action="{% url 'cart:create_order' %}">
+            <button class="show_order__button" type="submit">Оформить заказ</button>
+        </form>
     </div>
 {% endblock %}
