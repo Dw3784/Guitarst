@@ -95,20 +95,25 @@ def profile_view(request, pk):
 # Добавление почты
 def add_email(request):
     if request.method == 'POST':
-        email = request.POST.get("email_data")
-        try:
-            validate_email(email)
+        form = add_email_form(request.POST)
+        if form.is_valid():
+        
+            email = form.cleaned_data['email']
             user = User.objects.filter(username=request.user)
             user.update(email=email)
-
-        except:
-            return render(request, 'email_error.html')
         
-        return redirect('user:profile', user.values('id')[0]['id'])
-
+            return redirect('user:profile', user.values('id')[0]['id'])
+        
     else:
-        return render(request, 'email.html')
+        form = add_email_form()
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'email.html', context)
     
+
 # Удаление почты
 def delete_email(request):
     user = User.objects.filter(username=request.user)

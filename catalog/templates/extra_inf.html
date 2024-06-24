@@ -7,14 +7,26 @@
 
 {% block body %}
     <h1 class="product_name">{{ name }}</h1>
+    {% if product %}
+        <div class="product_image_wrapper">
+            <img class="product_image" src="{{ product.0.image.url }}">
+            <div class="product_button_wrapper">
+                <a class="product_button" href="{% url 'cart:create_cart' product.0.slug %}">В корзину</a>
+            </div>
+        </div>
+    {% else %}
+        <div class="product_image_wrapper">
+            <img src="{% static "images/not.found.jpg" %}" class="product_image_error">
+        </div>
+    {% endif %}
     <h2 class="product_des_name">{{ title1 }}</h2>
-    <span class="product_des">{{ description }}</span>
+    <div class="product_des">{{ description }}</div>
     <h2 class="product_quantity_name">{{ title2 }}</h2>
     {% if quantity != 0 %}
-        <span class="product_quantity">{{ quantity }}</span>
+        <div class="product_quantity">{{ quantity }}</div>
     {% else %}
-        <span class="product_quantity">{{ no_product }}</span>
+        <div class="product_quantity">{{ no_product }}</div>
     {% endif %}
     <h2 class="product_price_name">{{ title3 }}</h2>
-    <span class="product_price">{{ price }}</span>
+    <div class="product_price">{{ price }}</div> 
 {% endblock %}

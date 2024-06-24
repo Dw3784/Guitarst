@@ -140,10 +140,42 @@
 }
 
 /* Доп информация о товаре */
-.product_name, .product_des, .product_quantity, .product_price, .product_des_name, .product_quantity_name, .product_price_name {
+.product_des, .product_quantity, .product_price, .product_des_name, .product_quantity_name, .product_price_name {
+    font-family: 'JetBrains Mono', sans-serif;
+    font-size: 20px;
+}
+
+.product_name {
+    font-family: 'JetBrains Mono', sans-serif;
+    display: grid;
+    justify-items: center;
+}
+
+.product_image_wrapper {
+    float: right;
+    background-color: rgba(77, 61, 61, 0.557);
+    width: 300px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.product_image {
+    width: 300px;
+    height: 300px;
+}
+
+.product_button {
+    padding: 8px 25px 8px 25px;
+    background-color: rgb(216, 53, 53);
+    color: black;
+    list-style: none;
+    text-decoration: none;
+    border-radius: 4px;
     font-family: 'JetBrains Mono', sans-serif;
 }
 
-.product_des {
-    font-size: 20px;
+.product_button_wrapper {
+    display: grid;
+    justify-items: center;
+    margin-top: 15px;
 }

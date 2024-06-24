@@ -112,17 +112,13 @@
 
 
 /* Добавление почты */
-.add_email__button {
-    font-family: 'JetBrains Mono', sans-serif;
-}
-
 .add_email__text {
     margin-right: 10px;
     font-size: 15px;
 }
 
-.add_email__button {
-    padding: 15px;
+.add_email_form__input {
+    margin-left: 10px;
 }
 
 .add_email_form {

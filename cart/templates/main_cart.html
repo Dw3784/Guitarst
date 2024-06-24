@@ -9,7 +9,7 @@
     <h1 class="full_price">Сумма заказа: {{ full_price }}</h1>
     <div class="cart_objects">
         {% for cart_object in user_cart %}
-            <h2 class="main_product_inf">Товар: {{ cart_object.product }} в количестве: {{ cart_object.quantity }} | {{ cart_object.product_price }}</h2>
+            <h2 class="main_product_inf">Товар: {{ cart_object.product }} в количестве: {{ cart_object.quantity }} | {{ cart_object.product_price }}руб</h2>
             <form class="delete_form" action="{% url 'cart:delete_cart' cart_object.id %}" method="post">  
                 {% csrf_token %}
                 <button class="delete_form__button" type="submit">Удалить товар из корзины</button>

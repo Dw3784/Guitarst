@@ -48,6 +48,8 @@ def ac_gt(request):
     
     products = pagin[0]
     paginator = pagin[1]
+    for product in products:
+        print(product.image.url)
     
     context = {
         'title': 'Acoustic Guitars',
@@ -182,6 +184,7 @@ def extra_inf(request, pk):
         'price': product.values('price')[0]['price'],
         'quantity': product.values('quantity')[0]['quantity'],
         'description': product.values('description')[0]['description'],
+        'product': product,
         'title1': 'Описание',
         'title2': 'Наличие',
         'title3': 'Цена',

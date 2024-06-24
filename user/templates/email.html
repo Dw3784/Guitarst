@@ -6,9 +6,22 @@
 {% endblock %}
 
 {% block body %}
-    <form class="add_email_form" action="{% url "user:add_email" %}" method="post">
+    <!-- <form class="add_email_form" action="{% url "user:add_email" %}" method="post">
         {% csrf_token %}
         <input class="add_email__text" type="text" name="email_data">
         <input class="add_email__button" type="submit" value="Добавить почту">
+    </form> -->
+    <form class="add_email_form" action="{% url "user:add_email" %}" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="add_email_form__form_group">
+                {{ field.label }}
+                {{ field }}
+                {% if field.errors %}
+                    <div class="form_group__errors">{{ field.errors }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <input class="add_email_form__input" type="submit" value="Добавить почту">
     </form>
 {% endblock %}

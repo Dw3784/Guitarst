@@ -19,7 +19,7 @@ class order_form(forms.Form):
     paid_choice = forms.ChoiceField(label='Способ оплаты', choices=Paid_choice)
     delivery_choice = forms.ChoiceField(label='Способ доставки', choices=Delivery_choice)
 
-    def clean_phone_number(self):
+    def clean_phone_number(self):# Валидация номера телефона
         data = self.cleaned_data['phone_number']
 
         if not data.isdigit():
@@ -28,4 +28,26 @@ class order_form(forms.Form):
         if len(data) != 10 and data[0] != '+' or data[0] == '+' and len(data) != 11:
             
             self.add_error('phone_number', "Номер телефона должен содержать 10 цифр")
+        return data
+    
+    def clean_first_name(self):# Валидация имени
+        data = self.cleaned_data['first_name']
+        alp = ["а","б","в","г","д","е","ё","ж","з","и","й","к","л","м","н","о",
+            "п","р","с","т","у","ф","х","ц","ч","ш","щ","ъ","ы","ь","э","ю","я"]
+
+        for i in data:
+            if i not in alp:
+                raise forms.ValidationError("Имя должно содержать только буквы")
+        
+        return data
+
+    def clean_last_name(self):# Валидация фамилии
+        data = self.cleaned_data['last_name']
+        alp = ["а","б","в","г","д","е","ё","ж","з","и","й","к","л","м","н","о",
+            "п","р","с","т","у","ф","х","ц","ч","ш","щ","ъ","ы","ь","э","ю","я"]
+
+        for i in data:
+            if i not in alp:
+                raise forms.ValidationError("Фамилия должна содержать только буквы")
+        
         return data

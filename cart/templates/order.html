@@ -30,7 +30,15 @@
 </div>
 <form class="order_form" action="{% url "cart:create_order" %}" method="post">
     {% csrf_token %}
-    {{ form }}
+    {% for field in form %}
+        <div class="form_group">
+            {{ field.label }}
+            {{ field }}
+            {% if field.errors %}
+                <div class="form_group__errors">{{ field.errors }}</div>
+            {% endif %}
+        </div>
+    {% endfor %}
     <input class="order_form__input" type="submit" value="Оформить заказ"> 
 </form>
 {% endblock %}
